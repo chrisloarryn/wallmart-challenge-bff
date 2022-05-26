@@ -1,0 +1,14 @@
+{
+  "types": [
+    { "type": "feat", "section": "Features" },
+    { "type": "fix", "section": "Bug Fixes" },
+    { "type": "chore", "section": "Chore Features" },
+    { "type": "docs", "section": "Documentation" },
+    { "type": "style", "section": "Code Style" },
+    { "type": "refactor", "section": "Refactor" },
+    { "type": "perf", "hidden": true },
+    { "type": "test", "hidden": true }
+  ],
+  "commitUrlFormat": "https://github.com/geekzdev/back_geekz_products/commits{{hash}}",
+  "compareUrlFormat": "https://github.com/geekzdev/back_geekz_products/compare/{{previousTag}}...{{currentTag}}"
+}
