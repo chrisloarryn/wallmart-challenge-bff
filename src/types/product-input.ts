@@ -3,7 +3,7 @@ import {InputType, Field, Int} from 'type-graphql'
 @InputType({
     description: 'Pagination'
 })
-class Pagination {
+export class Pagination {
     @Field(() => Int, {
         description: 'skip',
         nullable: true
@@ -44,7 +44,7 @@ export class FindAllParams {
     })
     pagination: Pagination;
 
-    @Field(() => String, {
+    @Field(() => Parameter, {
         description: 'Params',
         nullable: true
     })
