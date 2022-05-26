@@ -21,22 +21,31 @@ export class ProductResolver {
   }
 
   @Query(() => [Product])
-  async searchForProducts(@Arg('input') { params, pagination }: FindAllParams): Promise<Product[]> {
+  async searchForProducts(@Arg('input', { nullable: true }) allParams: FindAllParams): Promise<Product[]> {
     const { API_URL = "https://wallmart-challenge-rest.herokuapp.com/api/v1" } = process.env
 
-    if (!pagination) pagination = { skip: 0, limit: 10 }
-    if (_.isEmpty(params)) throw new Error('No params provided')
-    if (params && Object.values(params).filter(Boolean).length === 0) throw new Error('Params must NOT be empty')
+    if (!allParams) {
+      const url = `${API_URL}/products?limit=5000&skip=0`
+
+      const { data } = await a.get(url)
+
+      if(!_.isArray(data)) throw new Error('No data found')
+
+      return data && data.length > 0 ? data.map((p: Product) => ({ ...p, isPalindrome: p.isPalindrome ?? false})) : []
+    }
+    if (!allParams.pagination) allParams.pagination = { skip: 0, limit: 10 }
+    if (_.isEmpty(allParams.params)) throw new Error('No params provided')
+    if (allParams.params && Object.values(allParams.params).filter(Boolean).length === 0) throw new Error('Params must NOT be empty')
 
     let searchParam = '', idParam = ''
 
-    if ((!!params.search && !params.id) && params.search.length < 4) throw new Error('Search must be at least 3 characters long')
-    if (params.search && params.search.length > 3) searchParam = `&s=${params.search}`
-    if (!params.search && !!params.id) idParam = `&id=${params.id}`
-    if ((params.search && params.search.length < 3) && (params.id && params.id.length>=1)) idParam = `&id=${params.id}`
-    if ((params.search && params.search.length > 3) && (params.id && params.id.length>=1)) searchParam = `&s=${params.search}`
+    if ((!!allParams.params.search && !allParams.params.id) && allParams.params.search.length < 4) throw new Error('Search must be at least 3 characters long')
+    if (allParams.params.search && allParams.params.search.length > 3) searchParam = `&s=${allParams.params.search}`
+    if (!allParams.params.search && !!allParams.params.id) idParam = `&id=${allParams.params.id}`
+    if ((allParams.params.search && allParams.params.search.length < 3) && (allParams.params.id && allParams.params.id.length>=1)) idParam = `&id=${allParams.params.id}`
+    if ((allParams.params.search && allParams.params.search.length > 3) && (allParams.params.id && allParams.params.id.length>=1)) searchParam = `&s=${allParams.params.search}`
 
-    const { skip = 0, limit = 10 } = pagination
+    const { skip = 0, limit = 10 } = allParams.pagination
 
     const url = `${API_URL}/products?limit=${limit ?? 10}&skip=${skip ?? 0}${searchParam}${idParam}`
 
