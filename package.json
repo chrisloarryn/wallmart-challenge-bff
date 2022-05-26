@@ -6,10 +6,6 @@
     "type": "git",
     "url": "git@chrisloarryn.github.com:chrisloarryn/wallmart-challenge-bff.git"
   },
-  "engines": {
-    "node": "8.5.2",
-    "npm": "14.17.0"
-  },
   "license": "MIT",
   "author": "Nicolas Galdames",
   "main": "app.js",
