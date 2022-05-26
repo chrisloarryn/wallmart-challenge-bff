@@ -7,8 +7,8 @@
     "url": "git@chrisloarryn.github.com:chrisloarryn/wallmart-challenge-bff.git"
   },
   "engines": {
-    "node": ">=8.9.0",
-    "npm": "18.2.0"
+    "node": ">=8.5.2",
+    "npm": "14.17.0"
   },
   "license": "MIT",
   "author": "Nicolas Galdames",
