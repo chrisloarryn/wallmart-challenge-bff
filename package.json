@@ -33,7 +33,6 @@
     }
   },
   "dependencies": {
-    "dotenv": "^10.0.0",
     "@types/express-fileupload": "^1.1.6",
     "@types/uuid": "^8.3.0",
     "@validatecl/type": "^1.0.5",
@@ -42,6 +41,7 @@
     "class-validator": "^0.13.1",
     "compression": "^1.7.4",
     "dayjs": "^1.10.7",
+    "dotenv": "^10.0.0",
     "graphql": "^15.5.0",
     "graphql-import-node": "0.0.4",
     "graphql-playground-middleware-express": "^1.7.22",
