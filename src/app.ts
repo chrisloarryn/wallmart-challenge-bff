@@ -23,6 +23,8 @@ const listen = async () => {
   const apolloServer = new ApolloServer({
     uploads: false, // disable apollo upload property
     schema,
+    introspection: true,
+    playground: true,
     formatError: (a) => {
 
       return a
