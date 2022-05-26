@@ -12,14 +12,18 @@ import a from 'axios'
 export class ProductResolver {
   @Query(() => [Product])
   async allProducts(@Arg('input', { nullable: true }) pagination: Pagination): Promise<Product[]> {
+    const { API_URL = "https://wallmart-challenge-rest.herokuapp.com/api/v1" } = process.env
+
     if (!pagination) pagination = { skip: 0, limit: 10 }
     const { skip = 0, limit = 10 } = pagination
-    const { data } = await a.get(`http://localhost:8080/api/v1/products?limit=${limit ?? 10}&skip=${skip ?? 0}`) // a.get('http://54.196.205.115:8080/api/v1/products')
+    const { data } = await a.get(`${API_URL}/products?limit=${limit ?? 10}&skip=${skip ?? 0}`) // a.get('http://54.196.205.115:8080/api/v1/products')
     return data && data.length > 0 ? data.map((p: Product) => ({ ...p, isPalindrome: p.isPalindrome ?? false})) : []
   }
 
   @Query(() => [Product])
   async searchForProducts(@Arg('input') { params, pagination }: FindAllParams): Promise<Product[]> {
+    const { API_URL = "https://wallmart-challenge-rest.herokuapp.com/api/v1" } = process.env
+
     if (!pagination) pagination = { skip: 0, limit: 10 }
     if (_.isEmpty(params)) throw new Error('No params provided')
     if (params && Object.values(params).filter(Boolean).length === 0) throw new Error('Params must NOT be empty')
@@ -34,9 +38,8 @@ export class ProductResolver {
 
     const { skip = 0, limit = 10 } = pagination
 
-    const url = `http://localhost:8080/api/v1/products?limit=${limit ?? 10}&skip=${skip ?? 0}${searchParam}${idParam}`
+    const url = `${API_URL}/products?limit=${limit ?? 10}&skip=${skip ?? 0}${searchParam}${idParam}`
 
-    console.log(url)
     const { data } = await a.get(url)
 
     if(!_.isArray(data)) throw new Error('No data found')
