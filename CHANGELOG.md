@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.4.2](https://github.com/geekzdev/back_geekz_products/compare/v1.4.1...v1.4.2) (2022-05-26)
+
+
+### Chore Features
+
+* update version ([2430c7c](https://github.com/geekzdev/back_geekz_products/commits2430c7ca6a138e401936ccf8c00cd770c6d9e5c6))
+
 ### [1.4.1](https://github.com/geekzdev/back_geekz_products/compare/v1.4.0...v1.4.1) (2022-05-26)
 
 ## [1.4.0](https://github.com/geekzdev/back_geekz_products/compare/v1.3.0...v1.4.0) (2022-05-26)
