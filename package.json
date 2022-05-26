@@ -1,7 +1,7 @@
 {
-  "name": "back_geekz_products",
-  "version": "1.2.0",
-  "description": "Microservicio de productos de Geekz",
+  "name": "wallmart-challenge-bff",
+  "version": "1.2.4",
+  "description": "Microservicio de productos",
   "repository": {
     "type": "git",
     "url": "git@geekz.github.com:geekzdev/back_geekz_products.git"
