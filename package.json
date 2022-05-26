@@ -1,6 +1,6 @@
 {
   "name": "wallmart-challenge-bff",
-  "version": "1.4.3",
+  "version": "1.4.4",
   "description": "Microservicio de productos",
   "repository": {
     "type": "git",
@@ -33,6 +33,7 @@
     }
   },
   "dependencies": {
+    "dotenv": "^10.0.0",
     "@types/express-fileupload": "^1.1.6",
     "@types/uuid": "^8.3.0",
     "@validatecl/type": "^1.0.5",
@@ -80,7 +81,6 @@
     "colors": "^1.4.0",
     "cors": "^2.8.5",
     "cz-conventional-changelog": "^3.0.1",
-    "dotenv": "^10.0.0",
     "eslint": "^7.28.0",
     "eslint-config-prettier": "^8.3.0",
     "eslint-plugin-prettier": "^3.4.0",
