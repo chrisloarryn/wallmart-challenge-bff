@@ -1,6 +1,6 @@
 {
   "name": "wallmart-challenge-bff",
-  "version": "1.4.2",
+  "version": "1.4.3",
   "description": "Microservicio de productos",
   "repository": {
     "type": "git",
@@ -47,7 +47,6 @@
     "graphql-request": "^3.5.0",
     "graphql-tools": "^7.0.5",
     "graphql-type-json": "^0.3.2",
-    "graphql-upload": "^13.0.0",
     "http": "0.0.1-security",
     "lodash": "^4.17.21",
     "ncp": "^2.0.0",
@@ -66,10 +65,10 @@
     "@types/bcrypt": "^5.0.0",
     "@types/compression": "^1.7.2",
     "@types/cors": "^2.8.10",
+    "@types/dotenv": "^8.2.0",
     "@types/express": "^4.17.12",
     "@types/express-graphql": "^0.9.0",
     "@types/graphql": "^14.5.0",
-    "@types/graphql-upload": "^8.0.11",
     "@types/jsonwebtoken": "^8.5.1",
     "@types/lodash": "^4.14.182",
     "@types/mongoose": "^5.11.97",
