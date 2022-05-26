@@ -1,6 +1,6 @@
 {
   "name": "wallmart-challenge-bff",
-  "version": "1.4.0",
+  "version": "1.4.1",
   "description": "Microservicio de productos",
   "repository": {
     "type": "git",
@@ -27,7 +27,7 @@
     "release:major": "standard-version --release-as major",
     "release:minor": "standard-version --release-as minor",
     "release:patch": "standard-version --release-as patch",
-    "start": "node dist/app.js",
+    "start": "npm run build && node dist/app.js",
     "start:dev": "npm run build:dev",
     "watch-ts": "tsc -w"
   },
