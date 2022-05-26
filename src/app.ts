@@ -16,7 +16,6 @@ import expressPlayGround from 'graphql-playground-middleware-express'
 //SCHEMA
 import { createSchema } from './utils/createSchema'
 
-import { graphqlUploadExpress } from 'graphql-upload'
 
 const listen = async () => {
   const schema = await createSchema()
@@ -40,7 +39,6 @@ const listen = async () => {
   app.use(compression())
   app.use(cors())
 
-  app.use(graphqlUploadExpress({ maxFileSize: 2 * 1000 * 1000, maxFiles: 10 }))
   apolloServer.applyMiddleware({ app })
 
   app.get('/', expressPlayGround({ endpoint: '/graphql' }))
